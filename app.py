@@ -22,6 +22,19 @@ st.set_page_config(
     layout="wide"
 )
 
+@st.cache_data
+def load_sample_data():
+    url = "https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data"
+    df = pd.read_csv(url, header=None)
+
+    sample_df = df.groupby(df.iloc[:, -1], group_keys=False).apply(
+        lambda x: x.sample(n=25, random_state=42)
+    )
+
+    sample_df = sample_df.sample(frac=1, random_state=42).reset_index(drop=True)
+    return sample_df
+
+
 # --------------------------------------------------
 # Sidebar
 # --------------------------------------------------
@@ -39,13 +52,6 @@ model_name = st.sidebar.selectbox(
     ]
 )
 
-uploaded_file = st.sidebar.file_uploader(
-    "Upload Test CSV (Spambase format)",
-    type=["csv"]
-)
-
-st.sidebar.markdown("---")
-
 model_descriptions = {
     "logistic_regression": "Linear model suitable for high-dimensional data.",
     "decision_tree": "Tree-based model that captures non-linear patterns.",
@@ -56,6 +62,24 @@ model_descriptions = {
 }
 
 st.sidebar.info(f"ℹ️ **Model Info:**\n\n{model_descriptions[model_name]}")
+uploaded_file = st.sidebar.file_uploader(
+    "Upload Test CSV (Spambase format)",
+    type=["csv"]
+)
+
+st.sidebar.markdown("---")
+st.sidebar.subheader("🧪 Download Quick Test Data")
+
+sample_df = load_sample_data()
+
+csv_bytes = sample_df.to_csv(index=False, header=False).encode("utf-8")
+
+st.sidebar.download_button(
+    label="⬇️ Download Sample Test CSV (50 rows)",
+    data=csv_bytes,
+    file_name="spambase_test_sample_50.csv",
+    mime="text/csv"
+)
 
 # --------------------------------------------------
 # Main Title
