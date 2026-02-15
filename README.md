@@ -22,10 +22,11 @@ The goal of this assignment is to design, evaluate, and deploy a machine learnin
 The following supervised learning models were implemented and evaluated:
 
 1. Logistic Regression    
-3. Decision Tree Classifier  
-7. Naive Bayes  
-8. Random Forest  
-9. XGBoost  
+2. Decision Tree Classifier
+3. K-Nearest Neighbor Classifier (KNN)
+4. Naive Bayes  
+5. Random Forest  
+6. XGBoost  
 
 <img width="894" height="332" alt="image" src="https://github.com/user-attachments/assets/4a3a42e4-9c03-40bc-9801-9857ebc22ef3" />  
   
@@ -36,8 +37,8 @@ The following supervised learning models were implemented and evaluated:
 
 Model-Specific Considerations
   1. Feature scaling is applied for:  
-    . Logistic Regression  
-    . KNN  
+     a. Logistic Regression
+     b. KNN  
   3. Tree-based models are used for feature importance analysis
 
 **Streamlit App Link:** https://mlemailspamclassifier-kandarpprakash.streamlit.app/
