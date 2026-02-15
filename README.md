@@ -40,9 +40,9 @@ Model-Specific Considerations
     . KNN  
   3. Tree-based models are used for feature importance analysis
 
-**Step 3 : GitHub Repository**  
-  <img width="699" height="744" alt="image" src="https://github.com/user-attachments/assets/d7355cd8-4c4c-436f-9ab3-55f7de6ef581" />
+**Streamlit App Link:** https://mlemailspamclassifier-kandarpprakash.streamlit.app/
 
-**Step 4: Create requirements.txt**  
-  <img width="272" height="301" alt="image" src="https://github.com/user-attachments/assets/21ab4c5d-d29a-4bb8-9562-8d4f2ba664e8" />
+<img width="1909" height="869" alt="image" src="https://github.com/user-attachments/assets/b6260877-16a7-47b1-81b8-4c532f139ca3" />
+
+
 
